@@ -35,8 +35,11 @@ else
 fi
 
 CONDA_ENV="dep_env"
-
 echo "-----> Installing Dependencies..."
+echo "-----> Configuring Environment..."
+$CONDA_BIN/conda config --add channels  $PYOFFLINE_CONDA_OFFLINE_CHANNEL
+$CONDA_BIN/conda config --remove channels 'defaults'
+
 echo "-----> Installing conda environment from environment.yml..."
 $CONDA_BIN/conda env update --quiet -n $CONDA_ENV -f "$BUILD_DIR/environment.yml"
 $CONDA_BIN/conda clean -pt
@@ -54,5 +57,9 @@ EOF
 
 echo "export PATH=\$DEPS_DIR/$DEPS_IDX/conda/bin:\$PATH" >> $PROFILE_PATH
 echo "source activate $CONDA_ENV" >> $PROFILE_PATH
+
+echo "-----> Listing environment with explicit dependencies"
+$CONDA_BIN/conda info
+$CONDA_BIN/conda list --name $CONDA_ENV --explicit
 
 echo "-----> Done"

@@ -62,8 +62,7 @@ PIP_VERSION=$($BUILDPACK_PATH/compile-extensions/bin/default_version_for $BUILDP
 SETUPTOOLS_VERSION=$($BUILDPACK_PATH/compile-extensions/bin/default_version_for $BUILDPACK_PATH/manifest.yml setuptools)
 
 env
-find $DEPS_DIR/$DEPS_IDX/bin
-find $DEPS_DIR/$DEPS_IDX/python/bin
+find $DEPS_DIR/$DEPS_IDX/
 
 # If Pip isn't up to date:
 if [ -n "${FRESH_PYTHON:-}" ] || [[ ! $(pip --version) == *$PIP_VERSION* ]]; then

@@ -42,8 +42,11 @@ else
     MINICONDA_FILE="Miniconda2-${MINICONDA_VERSION}-Linux-x86_64.sh"
 fi
 
-MINICONDA_URI="http://repo.continuum.io/miniconda/$MINICONDA_FILE"
+#MINICONDA_URI="http://repo.continuum.io/miniconda/$MINICONDA_FILE"
+MINICONDA_URI="$PYOFFLINE_CONDA_INSTALLER_PATH/$MINICONDA_FILE"
 MINICONDA_CACHE="$CACHE_DIR/$MINICONDA_FILE"
+
+echo "Downloading Conda Installer from.... $MINICONDA_URI"
 
 if [ ! -e $MINICONDA_CACHE ] ; then
     echo "-----> Downloading Miniconda..."

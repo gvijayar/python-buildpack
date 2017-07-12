@@ -4,3 +4,7 @@ applications:
   memory: 1GB
   disk_quota: 2GB
   command: python app.py
+  env:
+    PYOFFLINE_CONDA_INSTALLER_PATH: [CHANGEME]
+    PYOFFLINE_CONDA_VERSION: 4.3.14
+    PYOFFLINE_CONDA_OFFLINE_CHANNEL: [CHANGEME]

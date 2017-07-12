@@ -61,6 +61,9 @@ hash -r
 PIP_VERSION=$($BUILDPACK_PATH/compile-extensions/bin/default_version_for $BUILDPACK_PATH/manifest.yml pip)
 SETUPTOOLS_VERSION=$($BUILDPACK_PATH/compile-extensions/bin/default_version_for $BUILDPACK_PATH/manifest.yml setuptools)
 
+env
+find $DEPS_DIR/$DEPS_IDX/bin
+
 # If Pip isn't up to date:
 if [ -n "${FRESH_PYTHON:-}" ] || [[ ! $(pip --version) == *$PIP_VERSION* ]]; then
   TMPTARDIR=$(mktemp -d)
